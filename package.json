@@ -1,7 +1,13 @@
 {
     "name": "vue-pro-sidebar",
     "version": "0.1.0",
-    "private": true,
+    "private": false,
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/boussadjra/vue-pro-sidebar.git"
+    },
+    "license": "MIT",
+    "homepage": "https://boussadjra.github.io/vue-pro-sidebar/",
     "scripts": {
         "serve": "vue-cli-service serve --open",
         "build": "vue-cli-service build"
