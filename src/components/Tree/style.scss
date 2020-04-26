@@ -1,0 +1,15 @@
+.vps-tree-wrapper {
+    width: fit-content;
+    background: purple;
+    color: white;
+}
+
+.vps-tree {
+    &-item {
+        min-height: 32px;
+        background: rgb(97, 5, 97);
+        &-label {
+            padding: 8px;
+        }
+    }
+}

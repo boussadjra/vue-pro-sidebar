@@ -1,0 +1,24 @@
+.vps-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+    box-shadow: 0 0 4px #aaa;
+    background: white;
+    min-width: 280px;
+    width: fit-content;
+    border-radius: 4px;
+    &-header {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        border-bottom: 1px solid #ddd
+    }
+    &-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        padding: 10px;
+        border-bottom: 1px solid #ddd
+    }
+}

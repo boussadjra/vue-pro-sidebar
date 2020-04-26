@@ -1,0 +1,71 @@
+@import './animations.scss';
+.vps-icon-badge {
+    height: fit-content;
+    width: fit-content;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    .vps-badge {
+        position: absolute;
+        right: -8px;
+        top: -8px;
+        font-size: 11px;
+        border-radius: 50%;
+        min-width: 15px;
+        min-height: 15px;
+        &-circle {
+            min-width: 8px;
+            min-height: 8px;
+            border-radius: 50%;
+            &:empty,
+            &-empty {
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                right: -4px;
+                top: -7px;
+                &::after {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    border: 2px solid #d86703;
+                    opacity: 0;
+                    border-radius: 50%;
+                    width: 100%;
+                    height: 100%;
+                    -webkit-animation: sonar 1.5s infinite;
+                    animation: sonar 1.5s infinite;
+                }
+            }
+        }
+    }
+}
+
+.vps-icon-text {
+    display: grid;
+    grid-template-columns: max-content auto;
+    align-items: center;
+    grid-gap: 8px;
+    width: 100%;
+    height: 100%;
+    &>span {
+        line-height: 1.5;
+    }
+}
+
+.vps-dropdown {
+    position: absolute;
+    width: 280px;
+    color: #2c3e50;
+    &-top {
+        bottom: calc(12px + 100%);
+    }
+    &-bottom {
+        top: calc(12px + 100%);
+    }
+    .vps-card {
+        background: white;
+        width: 280px;
+    }
+}

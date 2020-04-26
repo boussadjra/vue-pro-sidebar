@@ -1,0 +1,10 @@
+@keyframes sonar {
+    0% {
+        transform: scale(.9);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}

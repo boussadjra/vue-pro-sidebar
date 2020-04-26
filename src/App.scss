@@ -1,0 +1,73 @@
+:root {
+    --side-bg-color: rgb(62, 68, 95);
+    --side-color: white;
+    --header-bg-color: rgb(65, 69, 100);
+    --header-color: white;
+    --status-color: #06ef61;
+    /** these vars used for translating the toolbar from the sidebar to the header
+     when w toggle the sidebar*/
+    --toolbar-trans-x: -1366px;
+    --toolbar-trans-y: 630px;
+}
+
+::-webkit-scrollbar {
+    width: 2px;
+    border-radius: 5px
+}
+
+::-webkit-scrollbar-track {
+    background: inherit;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--header-bg-color);
+    border-radius: 5px;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #2c3e50;
+    overflow: hidden;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+ul {
+    list-style: none;
+    padding-inline-start: 0;
+    margin-block-start: 0;
+}
+
+
+/****************/
+
+// Most important part
+.expand {
+    overflow: hidden;
+    transition-property: height;
+    transition-duration: 0.4s; // Durations can be changed without touching JS
+    transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275); // Timing functions also!
+    &[aria-expanded="false"] {
+        height: 0 !important;
+        transition-timing-function: cubic-bezier(0.6, -0.28, 0.735, 0.045); // Timing function can be different for each direction
+    }
+}
+
+.u-no-transition {
+    transition-duration: 0s !important;
+}
+
+
+/****************/
+
+@import './styles/style.scss'
