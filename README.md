@@ -12,6 +12,7 @@ And [React version](https://github.com/bRIMOs/react-pro-sidebar/) developed by [
 ## Screenshots 
 
 ![Vue Pro Sidebar 1](https://i.imgur.com/sTXOnj2.png)
+
 ![Vue Pro Sidebar 2](https://i.imgur.com/G1QaTSy.png)
 
 
