@@ -19,7 +19,7 @@ And [React version](https://github.com/bRIMOs/react-pro-sidebar/) developed by [
 
 ## Demo
 
-[Live Demo]()
+[Live Demo](http://boussadjra.github.io/vue-pro-sidebar)
 
 ## Quick start
 
