@@ -14,7 +14,12 @@
           </template>
           <template #body>
             <div class="vps-theme-colors">
-              <label class="vps-theme-color" v-for="(col,key,i) in colors" @click="chooseTheme(col)" :key="i">
+              <label
+                class="vps-theme-color"
+                v-for="(col,key,i) in colors"
+                @click="chooseTheme(col)"
+                :key="i"
+              >
                 <div class="color" :style="{background:col.sidebarColor}"></div>
                 <div class="color" :style="{background:col.headerColor}"></div>
               </label>
@@ -23,6 +28,10 @@
           <template #footer></template>
         </card>
       </vps-drawer>
+    </div>
+
+    <div class="vps-main">
+      <router-view></router-view>
     </div>
   </div>
 </template>
@@ -42,23 +51,23 @@ export default {
       colors: {
         theme1: {
           sidebarColor: "#004D40",
-          headerColor: "#00695C"
+          headerColor: "#3aa996"
         },
         theme2: {
           sidebarColor: "#2e003e",
-          headerColor: "#3d2352"
+          headerColor: "#ccb5df"
         },
         theme3: {
           sidebarColor: "#05386B",
-          headerColor: "#379683"
+          headerColor: "#60e1c7"
         },
         theme4: {
           sidebarColor: "#022140",
-          headerColor: "#265077"
+          headerColor: "#65b4fd"
         },
         theme5: {
           sidebarColor: "#0c0023",
-          headerColor: "#190061"
+          headerColor: "#8463e5"
         },
         theme6: {
           sidebarColor: "#38003c",
@@ -66,7 +75,7 @@ export default {
         },
         theme7: {
           sidebarColor: "#330136",
-          headerColor: "#5E1742"
+          headerColor: "#e79ac8"
         },
         theme8: {
           sidebarColor: "#191226",
@@ -78,7 +87,7 @@ export default {
         },
         theme10: {
           sidebarColor: "#2A4C59",
-          headerColor: "#A62D43"
+          headerColor: "#dd6f83"
         },
         theme11: {
           sidebarColor: "#103754",
@@ -106,7 +115,7 @@ export default {
         },
         theme17: {
           sidebarColor: "#651e3e",
-          headerColor: "#851e3e"
+          headerColor: "#ce0c63"
         },
         theme18: {
           sidebarColor: "#0072ff",
@@ -146,11 +155,76 @@ export default {
         },
         theme27: {
           sidebarColor: "#3e1063",
-          headerColor: "#401372"
+          headerColor: "#c0b6cc"
         },
         theme28: {
           sidebarColor: "#2F2440",
           headerColor: "#BA0F30"
+        },
+        theme29: {
+          sidebarColor: "#0A7EA2",
+          headerColor: "#f3a453"
+        },
+        theme30: {
+          sidebarColor: "#1A1C29",
+          headerColor: "#13B65B"
+        },
+        theme31: {
+          sidebarColor: "#0011B2",
+          headerColor: "#FFC700"
+        },
+        theme32: {
+          sidebarColor: "#006bbb",
+          headerColor: "#FFC872"
+        },
+        theme33: {
+          sidebarColor: "#752092",
+          headerColor: "#FFC872"
+        },
+        theme34: {
+          sidebarColor: "#7A04DD",
+          headerColor: "#5e87eb"
+        },
+        theme35: {
+          sidebarColor: "#273253",
+          // headerColor: '#F4E9DA'
+          headerColor: "#57B5ED"
+        },
+        theme36: {
+          sidebarColor: "#254B62",
+          headerColor: "#CFF532"
+        },
+        theme37: {
+          sidebarColor: "#002E9D",
+          headerColor: "#D38400"
+        },
+        theme38: {
+          sidebarColor: "#343434",
+          headerColor: "#FFC700"
+        },
+        theme39: {
+          sidebarColor: "#303960",
+          headerColor: "#ea9a96"
+        },
+        theme39: {
+          sidebarColor: "#303960",
+          headerColor: "#ea9a96"
+        },
+        theme40: {
+          sidebarColor: "#120136",
+          headerColor: "#fcbf1e"
+        },
+        theme41: {
+          sidebarColor: "#2d334a",
+          headerColor: "#00ec59"
+        },
+        theme42: {
+          sidebarColor: "#454d66",
+          headerColor: "#b8b74a"
+        },
+        theme43: {
+          sidebarColor: "#30475e",
+          headerColor: "#9e9e9e"
         }
       }
     };
@@ -163,11 +237,28 @@ export default {
       };
     }
   },
-  methods:{
-chooseTheme(color){
- document.documentElement.style.setProperty("--side-bg-color", color.sidebarColor)
- document.documentElement.style.setProperty("--header-bg-color", color.headerColor)
-}
+  methods: {
+    chooseTheme(color, newTheme = true) {
+      document.documentElement.style.setProperty(
+        "--side-bg-color",
+        color.sidebarColor
+      );
+      document.documentElement.style.setProperty(
+        "--header-bg-color",
+        color.headerColor
+      );
+      document.documentElement.style.setProperty(
+        "--sidebarColor",
+        color.sidebarColor
+      );
+      document.documentElement.style.setProperty(
+        "--headerColor",
+        color.headerColor
+      );
+      if (newTheme) {
+        localStorage.setItem("vpscolor", JSON.stringify(color));
+      }
+    }
   },
   components: {
     List,
@@ -176,6 +267,20 @@ chooseTheme(color){
     Icon,
     "vps-drawer": Drawer,
     "vps-button": Button
+  },
+  mounted() {
+    let defaultTheme = {
+      sidebarColor: "#0FA774",
+      headerColor: "#a7a409"
+    };
+    try {
+      let item = localStorage.getItem("vpscolor");
+
+      let theme = item ? JSON.parse(item) : defaultTheme;
+      this.chooseTheme(theme, false);
+    } catch (error) {
+      this.chooseTheme(defaultTheme, false);
+    }
   }
 };
 </script>

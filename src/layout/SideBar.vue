@@ -24,8 +24,7 @@
     </div>
 
     <div class="vps-sidebar-search">
-        <slot name="search"></slot>
-
+      <slot name="search"></slot>
     </div>
     <ul class="vps-sidebar-menu">
       <li class="vps-sidebar-menu-header">
@@ -47,7 +46,10 @@
             height="16px"
             width="16px"
           />
-          <div class="vps-sidebar-menu-item-content-label">{{item.label}}</div>
+          <div class="vps-sidebar-menu-item-content-label">
+
+          {{item.label}}
+          </div>
           <div v-if="item.details" class="vps-sidebar-menu-item-content-details">
             <badge :color="item.details.color" :text="item.details.text"/>
           </div>
@@ -61,7 +63,10 @@
         </div>
         <ul class="vps-sidebar-sub-menu expand" v-expand="index===expandedIndex">
           <li v-for="(child,i) in item.children" :key="i" class="vps-sidebar-sub-menu-item">
-            <div class="vps-sidebar-sub-menu-item-label">{{child.label}}</div>
+            <div class="vps-sidebar-sub-menu-item-label">
+            <router-link :to="child.to?child.to:'/coming-soon'">{{item.label}}</router-link>
+            
+            </div>
           </li>
         </ul>
       </li>
@@ -112,13 +117,16 @@ export default {
           },
           children: [
             {
-              label: "Dashboard 1"
+              label: "Dashboard 1",
+              to: "/dashboard1"
             },
             {
-              label: "Dashboard 2"
+              label: "Dashboard 2",
+              to: "/dashboard2"
             },
             {
-              label: "Dashboard 3"
+              label: "Dashboard 3",
+              to: "/dashboard3"
             }
           ]
         },
@@ -220,8 +228,7 @@ export default {
   components: {
     Icon,
     Avatar,
-    Badge,
-
+    Badge
   },
   directives: {
     expand

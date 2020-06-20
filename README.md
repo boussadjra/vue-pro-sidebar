@@ -1,8 +1,8 @@
 # Vue Pro Sidebar
 
 A responsive sidebar template  version of the [HTML pro side bar](https://github.com/azouaoui-med/pro-sidebar-template) 
-which has a basic configuration of files structure and Vue ecosystem like Vuex and Vue-router
-it's developed using on Vue-cli 3
+which has a configuration of files structure and Vue ecosystem including Vuex and Vue-router (with [code splitting feature](https://webpack.js.org/guides/code-splitting-async/))
+it's developed using on Vue-cli 3, it's serves as starter and saves your time when you launch a new project.
 
 Original versions made by [Azouaoui Mohamed](https://github.com/azouaoui-med/)
 Check [HTML version](https://github.com/azouaoui-med/pro-sidebar-template)
