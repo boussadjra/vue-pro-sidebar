@@ -58,4 +58,4 @@ This app doesn't use any CSS framework or assets provider.
 
 ## License
 
-This code is released under the [MIT]() license.
+This code is released under the [MIT](https://opensource.org/license/mit/) license.
